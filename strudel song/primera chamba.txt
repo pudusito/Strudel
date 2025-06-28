@@ -1,0 +1,55 @@
+setcps(120/60/4)
+
+bombo:
+n("[0 0 0 0 0 0 0 [0*2] ]/2").sound("bd").bank("RolandTR909")
+
+platillos:
+sound("[- cp]*2, [- hh]*4").bank("RolandTR909")
+
+timbales:
+sound("- perc - perc:1*2")
+.bank("RolandCompurhythm1000").cpm(120/2)
+      
+deep_melodia:
+note(`
+[eb4 eb4 d4 eb4 f4 d4 c4 c4*2]/2
+`)
+.sound("gm_taiko_drum:2")
+
+
+setcps(140/60/4)
+bombo:
+n("[0 0 0 0 0 0 0 [0*2] ]/2").sound("bd").bank("RolandTR909")
+
+platillos:
+n("[0 - 0 - 0 - 0 [0*2] ]/2").sound("hh").bank("RolandTR909")
+
+asd:
+n("[- 0 - 0 - 0 - [-*2] ]/2").sound("perc").bank("RolandTR505")
+
+
+deep_melodia:
+note(`
+[eb4 eb4 d4 eb4 f4 d4 c4 c4*2]/2
+`)
+.sound("gm_taiko_drum:2")
+.gain(1)
+
+
+setcps(160/60/4)
+bombo:
+n("[0 0 0 0 0 0 0 [0*2] ]/2").sound("bd").bank("RolandTR909")
+
+platillos:
+n("[0 - 0 - 0 - 0 [0*2] ]/2").sound("hh").bank("RolandTR909")
+
+perc:
+n("[- 0 - 0 - 0 - [-*2] ]/2").sound("perc").bank("RolandTR505")
+
+
+deep_melodia:
+note(`
+[eb4 eb4 d4 eb4 f4 d4 c4 c4*2]/2
+`)
+.sound("gm_taiko_drum:2")
+.gain(2)

@@ -1,0 +1,100 @@
+learning @by pudu
+
+visuals
+await initHydra()
+let pattern = [8 7 4 5 3 4 3[6 7]2]2
+shape(H(pattern)).out(o0)
+
+cicle per min
+var cpm = 30;
+
+$
+stack(main stack
+bombo
+n([0 0 0 0 0 0 0 [02] ]2)
+  .sound(jazz0)
+,
+bass
+n([g1 g1 g1 g1 g1 g1 g1 - ]2)
+.s(sine).pdec(.5)
+.penv(32)
+.gain(1)
+.pcurve(1)
+
+,
+note(`
+[[e3,a3,c4]@1 [e3,a3,c4] [e3,a3,c4]2
+[e3,a3,d4]@1 [e3,a3,d4] [e3,a3,d4]
+[e3,a3,b3]@1[e3,a3,b3] [e3,a3,b3]
+[e3,a3,c4]@1 [e3,a3,c4] [e3,a3,c4]]4
+
+[[e3,a3,e4]@1 [e3,a3,e4] [e3,a3,e4]2
+[e3,a3,f4]@1 [e3,a3,f4] [e3,a3,f4]
+[e3,a3,g4]@1 [e3,a3,g4] [e3,a3,g4]
+[e3,a3,d4]@1 [e3,a3,d4] [e3,a3,d4]]4
+`)
+.sound(gm_koto2)
+.gain(0.5)
+.release(0.1)
+.lpf(4000)
+.mask(0!4 1!500)
+._spiral({ steady .96 }),
+
+note(`
+[[e3,a3,c4] [e3,a3,c4] [e3,a3,c4]
+[e3,a3,d4] [e3,a3,d4] [e3,a3,d4]
+[e3,a3,b3][e3,a3,b3] [e3,a3,b3]
+[e3,a3,c4] [e3,a3,c4] [e3,a3,c4]]
+
+[[e3,a3,e4] [e3,a3,e4] [e3,a3,e4]
+[e3,a3,f4] [e3,a3,f4] [e3,a3,f4]
+[e3,a3,g4] [e3,a3,g4] [e3,a3,g4]
+[e3,a3,d4] [e3,a3,d4] [e3,a3,d4]]
+`)
+  .slow(4) low the cicle
+  .decay(0.4)
+  .mask(0!8 1!16)
+  .punchcard().color(red)
+  .vib(0.5) onda durante intro
+  ._scope()
+,
+second intro note by shadesDrawn
+note(`
+[[e3,a3,c4]@1 [e3,a3,c4] [e3,a3,c4]
+[e3,a3,d4]@1 [e3,a3,d4] [e3,a3,d4]
+[e3,a3,b3]@1[e3,a3,b3] [e3,a3,b3]
+[e3,a3,c4]@1 [e3,a3,c4] [e3,a3,c4]]
+
+[[e3,a3,e4]@1 [e3,a3,e4] [e3,a3,e4]
+[e3,a3,f4]@1 [e3,a3,f4] [e3,a3,f4]
+[e3,a3,g4]@1 [e3,a3,g4] [e3,a3,g4]
+[e3,a3,d4]@1 [e3,a3,d4] [e3,a3,d4]]
+`)
+  .slow(4)
+  .sound(sawtooth)
+  .fm(sine.range(0,4).slow(6))
+  .lpf(650)
+  .decay(0.3)
+  .pan(0.6)
+  .gain(sine.range(1,0.5).slow(20))
+  .mask(0!16 1!8)
+  .color(cyan),
+
+).cpm(cpm)  we give the variable to all the stack
+
+$
+note(`
+[[e3,a3,c4]@1 [e3,a3,c4] [e3,a3,c4]2
+[e3,a3,d4]@1 [e3,a3,d4] [e3,a3,d4]
+[e3,a3,b3]@1[e3,a3,b3] [e3,a3,b3]
+[e3,a3,c4]@1 [e3,a3,c4] [e3,a3,c4]]4
+
+[[e3,a3,e4]@1 [e3,a3,e4] [e3,a3,e4]2
+[e3,a3,f4]@1 [e3,a3,f4] [e3,a3,f4]
+[e3,a3,g4]@1 [e3,a3,g4] [e3,a3,g4]
+[e3,a3,d4]@1 [e3,a3,d4] [e3,a3,d4]]4
+`)
+.s(sawtooth, square0.5) 
+.gain(0.05)control volume
+.mask(0!24 1!8) duration of the cicle.
+.color(brown)

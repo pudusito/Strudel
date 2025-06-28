@@ -1,0 +1,63 @@
+//learning @by pudu
+var cpm = 30;
+
+stack(
+//rythm
+n("[0 0 0 0 0 0 0 [0*2] ]/2").sound("jazz:0")._scope(),
+//bass
+  n("[g1 g1 g1 g1 g1 g1 g1 - ]/2")
+.s("sine").pdec(.5)
+.penv(32)
+.gain(1)
+.pcurve("<1>")
+,
+
+//intro
+note(`
+[[e3,a3,c4] [e3,a3,c4] [e3,a3,c4]
+[e3,a3,d4] [e3,a3,d4] [e3,a3,d4]
+[e3,a3,b3][e3,a3,b3] [e3,a3,b3]
+[e3,a3,c4] [e3,a3,c4] [e3,a3,c4]]
+
+[[e3,a3,e4] [e3,a3,e4] [e3,a3,e4]
+[e3,a3,f4] [e3,a3,f4] [e3,a3,f4]
+[e3,a3,g4] [e3,a3,g4] [e3,a3,g4]
+[e3,a3,d4] [e3,a3,d4] [e3,a3,d4]]
+`)
+  .slow(4)
+  .vib(0.5)
+  .decay(0.4)
+  .mask("<0!8 1!500>")
+  ._pianoroll({ labels: 2 , cycles : 2 }),
+//second intro note by shadesDrawn
+note(`
+[[e3,a3,c4]@1 [e3,a3,c4] [e3,a3,c4]
+[e3,a3,d4]@1 [e3,a3,d4] [e3,a3,d4]
+[e3,a3,b3]@1[e3,a3,b3] [e3,a3,b3]
+[e3,a3,c4]@1 [e3,a3,c4] [e3,a3,c4]]
+
+[[e3,a3,e4]@1 [e3,a3,e4] [e3,a3,e4]
+[e3,a3,f4]@1 [e3,a3,f4] [e3,a3,f4]
+[e3,a3,g4]@1 [e3,a3,g4] [e3,a3,g4]
+[e3,a3,d4]@1 [e3,a3,d4] [e3,a3,d4]]
+`)
+  .slow(4)
+  .sound("sawtooth")
+  .fm(sine.range(0,4).slow(6))
+  .lpf(650)
+  .decay(0.3)
+  .pan(0.6)
+  .gain(sine.range(1,0.5).slow(20))
+  .mask("<0!16 1!8>")
+  ._pianoroll({ labels: 2 , cycles : 2 }),
+  
+//wave why not?
+note(`
+[a3 c4] 
+`)
+.vib("<2 2 4 8>:12")
+  .pattack(.5)
+  .slow(2)
+  .mask("<0!24 1!8>")
+._scope()
+).cpm(cpm)

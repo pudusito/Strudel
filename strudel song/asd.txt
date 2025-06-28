@@ -1,0 +1,32 @@
+//learning by @Pudu
+var cpm = 30 // se multiplica x4 para sacar el bpm.
+
+$:note("<g1*4>")
+.s("sine")
+  .pdec(0.5)
+  .gain(1)
+  .compressor("-20:20:10:.002:.02")
+  .decay(0.5)
+  .release(0.2)
+  .penv(32)
+  .pcurve(1)
+  .lpd(.7)
+  .hpf("0 <500 0>")
+
+$: s(`[- hh] [- hh] [- hh] [- hh*2]/2`)
+  .coarse(2)
+  .gain(0.1)
+  .decay(0.2)
+  .compressor("-10:10:10:.005:.05")
+
+$: s("<[~ sd]>")
+  .fast(2)
+  .gain(0.4)
+  .hpf("0 <2000 0>")
+
+$:
+  note("<[c2, ds3, as3, d4]*2> <[cs2, g3, b3, f4]*2 [d3, f3, c4, e3]*2> ")
+  .s("gm_fx_echoes:1")
+  .lpf(4000)
+  .hpf("0 <500 0>")
+

@@ -1,0 +1,99 @@
+setcps(120/60/4)
+samples({ loopAmen02: 'https://cdn.freesound.org/previews/736/736476_16019844-hq.mp3' })
+
+bateriaculia:
+sound("loopAmen02")
+.chop(10)
+.color("#909")
+.slow(1)
+.loopAt(1)
+._pianoroll({ labels: 1,cycles : 1 })
+
+elArpegioctm:
+note("[c2, ds3, as3, d4]@3 [ds2, g3, as3, e4] [d3, f3, c4, e3]@3[cs2, g3, b3, f4]")
+.arp("[1 2 0 3] [0 4 2 3] [4 5 0 1][2 1 3 0]")
+.lpf(650)
+.slow(2)
+.color("#0f0")
+._pianoroll({ labels: 1 , cycles : 1 })
+elAcordex:
+note("[c2, ds3, as3, d4]@3 [ds2, g3, as3, e4] [d3, f3, c4, e3]@3[cs2, g3, b3, f4]")
+.s("sine")
+.legato(0.9)
+.slow(2)
+.color("#6fb")
+._pianoroll({ labels: 1 , cycles : 1 })
+Laweaenferma:
+sound("bd hh*16 rim hh*4")
+
+laweaenferma2:
+n("0 1 [4 2] 3*2").sound("jazz")
+
+asd:
+note(`
+[[e3,a3,c4]@2 [e3,a3,c4] [e3,a3,c4]
+[e3,a3,d4]@2 [e3,a3,d4] [e3,a3,d4]
+[e3,a3,b3]@2 [e3,a3,b3] [e3,a3,b3]
+[e3,a3,c4]@2 [e3,a3,c4] [e3,a3,c4]]!3
+
+[[e3,a3,e4]@2 [e3,a3,e4] [e3,a3,e4]
+[e3,a3,f4]@2 [e3,a3,f4] [e3,a3,f4]
+[e3,a3,g4]@2 [e3,a3,g4] [e3,a3,g4]
+[e3,a3,d4]@2 [e3,a3,d4] [e3,a3,d4]]
+`)
+  .slow(4)
+  .sound("sawtooth")
+  .fm(sine.range(0,4).slow(6))
+  .lpf(1000)
+  .decay(0.3)
+  .pan(0.6)
+  .gain(sine.range(1.2,0.2).slow(20))
+  .mask("<0!8 1!500>"),
+n("[0 0 0 0 0 0 0 [0*2] ]/2").sound("bd").bank("RolandTR909")
+,
+speed("1  1  1 [1.1 2]/2").s("piano").decay(0.5).gain(0.2).mask("<0!4 1!500>")
+
+  note("d1!8").s("sine").penv(36).pdecay(.12).decay(.23).distort("6:.1").mask("<0!32 1!500>")//esto es base de hardbass, 
+
+
+//wave why not?
+note(`
+[a3 c4] 
+`)
+.vib("<2 2 4 8>:12")
+  .pattack(.5)
+  .slow(2)
+  .mask("<0!24 1!8>")
+._scope()
+
+
+//rap rythm 
+sound("<bd hh rim hh>*8").cpm(90/4)
+
+bassline: 
+note("[eb1, eb2] !16 [f2, f1 ] !16 [g2, g6 ] !16")
+.sound("square")
+.slow(8)
+gain("[0.4 1]*4" )
+.lpf(600)
+.room(0.4)
+.cpm(30)
+
+
+const energy = (mouseX.segment(2).range(4 , 12))
+
+
+
+bassline: 
+note("[eb1, eb2] !16 [f2, f1 ] !16 [g2, g1 ] !16")
+.sound("square")
+.slow(8)
+//gain("[0.4 1]*4" )
+.lpf(mouseX.segment(4).range(200,1500))
+.room(0.4)
+.cpm(30)
+
+
+.lpq("<0 10 20 30>") // resonance factor between 0 and 50
+
+  .mask("0 1 1 !16")

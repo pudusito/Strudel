@@ -1,0 +1,9 @@
+sound() = para crear sonidos
+.gain(.5) //50% volumen
+cpm() = ciclos por min
+,
+
+const dbank = "tr909"
+
+.bank(dbank)
+
